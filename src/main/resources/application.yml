@@ -2,7 +2,7 @@ spring:
   application:
     name: guangtong
   datasource:
-    driver-class-name: com.mysql.jdbc.Driver
+    driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://bt.i0xi.cn:3306/guangtong?useUnicode=true&characterEncoding=utf8&autoReconnect=true
     username: guangtong
     password: qazedc123.
