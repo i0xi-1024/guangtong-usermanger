@@ -2,7 +2,6 @@ package cn.i0xi.guangtong.controller;
 
 import cn.i0xi.guangtong.domain.Users;
 import cn.i0xi.guangtong.service.UsersService;
-import com.google.gson.Gson;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -18,5 +17,11 @@ public class HelloController {
     @RequestMapping("/hello")
     public List<Users> hello() {
         return usersService.list();
+    }
+
+    @RequestMapping("/addUsers")
+    public Users addUser(Users users){
+        usersService.saveOrUpdate(users);
+        return users;
     }
 }
