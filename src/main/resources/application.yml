@@ -3,6 +3,8 @@ spring:
     name: guangtong
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://bt.i0xi.cn:3306/guangtong?useUnicode=true&characterEncoding=utf8&autoReconnect=true
+    url: jdbc:mysql://pan.i0xi.cn:3306/guangtong?useUnicode=true&characterEncoding=utf8&autoReconnect=true
     username: guangtong
     password: qazedc123.
+server:
+  port: 80

@@ -1,16 +1,16 @@
 package cn.i0xi.guangtong.domain;
 
 import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+
 import java.io.Serializable;
 
 /**
  * 
- * @TableName guangtong_users
+ * @TableName users
  */
-@TableName(value ="guangtong_users")
+@TableName(value ="users")
 public class Users implements Serializable {
     /**
      * 
@@ -27,9 +27,6 @@ public class Users implements Serializable {
      * 用户手机
      */
     private String phone;
-
-    @TableField(exist = false)
-    private static final long serialVersionUID = 1L;
 
     /**
      * 
@@ -102,15 +99,12 @@ public class Users implements Serializable {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(getClass().getSimpleName());
-        sb.append(" [");
-        sb.append("Hash = ").append(hashCode());
-        sb.append(", id=").append(id);
-        sb.append(", name=").append(name);
-        sb.append(", phone=").append(phone);
-        sb.append(", serialVersionUID=").append(serialVersionUID);
-        sb.append("]");
-        return sb.toString();
+        return getClass().getSimpleName() +
+                " [" +
+                "Hash = " + hashCode() +
+                ", id=" + id +
+                ", name=" + name +
+                ", phone=" + phone +
+                "]";
     }
 }
