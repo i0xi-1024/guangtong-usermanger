@@ -5,6 +5,6 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://pan.i0xi.cn:3306/guangtong?useUnicode=true&characterEncoding=utf8&autoReconnect=true
     username: guangtong
-    password: qazedc123.
+    password: guangtong123.
 server:
-  port: 80
+  port: 8081
