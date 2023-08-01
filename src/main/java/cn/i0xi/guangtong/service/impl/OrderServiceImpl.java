@@ -1,10 +1,12 @@
 package cn.i0xi.guangtong.service.impl;
 
-import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import cn.i0xi.guangtong.domain.Order;
-import cn.i0xi.guangtong.service.OrderService;
 import cn.i0xi.guangtong.mapper.OrderMapper;
+import cn.i0xi.guangtong.service.OrderService;
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
 * @author 11429
@@ -15,6 +17,10 @@ import org.springframework.stereotype.Service;
 public class OrderServiceImpl extends ServiceImpl<OrderMapper, Order>
     implements OrderService{
 
+    @Override
+    public List<Order> getOrderList() {
+        return null;
+    }
 }
 
 
