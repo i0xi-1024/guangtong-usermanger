@@ -6,6 +6,9 @@ spring:
     url: jdbc:mysql://pan.i0xi.cn:3306/guangtong?useUnicode=true&characterEncoding=utf8&autoReconnect=true
     username: guangtong
     password: guangtong123.
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
 server:
   port: 8081
   mybatis-plus:
