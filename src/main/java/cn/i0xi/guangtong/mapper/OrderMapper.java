@@ -1,7 +1,11 @@
 package cn.i0xi.guangtong.mapper;
 
 import cn.i0xi.guangtong.domain.Order;
+import cn.i0xi.guangtong.dto.OrderListDto;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+
+import java.util.List;
 
 /**
 * @author 11429
@@ -11,6 +15,7 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 */
 public interface OrderMapper extends BaseMapper<Order> {
 
+    List<Order> selectOrderList(IPage<Order> page, OrderListDto orderListDto);
 }
 
 

@@ -40,4 +40,16 @@
         rebates,total_prices,note,
         create_time,update_time
     </sql>
+    <select id="selectOrderList" resultType="cn.i0xi.guangtong.domain.Order">
+        SELECT <include refid="Base_Column_List"/>
+        FROM `order`
+        <where>
+            <if test="orderListDto.username != null and orderListDto.username != ''">
+                AND username like #{orderListDto.username}
+            </if>
+            <if test="orderListDto.phone != null and orderListDto.phone != ''">
+                AND phone like #{orderListDto.phone}
+            </if>
+        </where>
+    </select>
 </mapper>

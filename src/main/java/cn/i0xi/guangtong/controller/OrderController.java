@@ -1,9 +1,9 @@
 package cn.i0xi.guangtong.controller;
 
 import cn.i0xi.guangtong.domain.Order;
+import cn.i0xi.guangtong.dto.OrderListDto;
 import cn.i0xi.guangtong.service.OrderService;
 import cn.i0xi.guangtong.utils.Result;
-import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
@@ -19,8 +19,14 @@ public class OrderController {
     OrderService orderService;
 
     @GetMapping("/list")
-    public Result<?> getOrderList(){
-        return Result.success(orderService.page(new Page<>(1, 10)));
+    public Result<?> getOrderList(OrderListDto orderListDto){
+        try{
+            return Result.success(orderService.getOrderList(orderListDto));
+        }catch (Exception e){
+            e.printStackTrace();
+            log.error(e.toString());
+            return Result.error(e);
+        }
     }
 
     @GetMapping("/order")
