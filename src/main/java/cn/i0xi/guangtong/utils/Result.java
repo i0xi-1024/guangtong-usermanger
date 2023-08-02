@@ -2,15 +2,12 @@ package cn.i0xi.guangtong.utils;
 
 import lombok.Getter;
 
-import java.util.List;
-
 @Getter
 public class Result<T> {
 
     private int code = Status.SUCCESS.code;
     private String msg = null;
     private T data = null;
-    private int total = 0;
 
 
     private Result() {
@@ -22,16 +19,19 @@ public class Result<T> {
         this.data = data;
     }
 
+    public static <T> Result<T> success() {
+        return success(Status.SUCCESS.code, Status.SUCCESS.msg, null);
+    }
     public static <T> Result<T> success(T data) {
-        return new Result<>(Status.SUCCESS.code, Status.SUCCESS.msg, data);
+        return success(Status.SUCCESS.code, Status.SUCCESS.msg, data);
     }
 
     public static Result<String> success(String msg) {
-        return new Result<>(Status.SUCCESS.code, msg, null);
+        return success(Status.SUCCESS.code, msg, (String) null);
     }
 
     public static Result<?> success(int code, String msg) {
-        return new Result<>(code, msg, null);
+        return success(code, msg, null);
     }
 
     public static <T> Result<T> success(int code, String msg, T data) {
@@ -48,14 +48,6 @@ public class Result<T> {
 
     public static Result<?> error(int code, String msg) {
         return new Result<>(code, msg, null);
-    }
-
-    public int getTotal() {
-        if (data instanceof List<?>) {
-            return ((List<?>) data).size();
-        } else {
-            return total;
-        }
     }
 
     public enum Status {

@@ -2,9 +2,8 @@ package cn.i0xi.guangtong.service;
 
 import cn.i0xi.guangtong.domain.Order;
 import cn.i0xi.guangtong.dto.OrderListDto;
+import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.service.IService;
-
-import java.util.List;
 
 /**
 * @author 11429
@@ -13,6 +12,6 @@ import java.util.List;
 */
 public interface OrderService extends IService<Order> {
 
-    List<Order> getOrderList(OrderListDto orderListDto);
+    IPage<Order> getOrderList(OrderListDto orderListDto);
 
 }

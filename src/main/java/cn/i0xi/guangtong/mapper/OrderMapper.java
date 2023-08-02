@@ -5,8 +5,6 @@ import cn.i0xi.guangtong.dto.OrderListDto;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 
-import java.util.List;
-
 /**
 * @author 11429
 * @description 针对表【order】的数据库操作Mapper
@@ -15,7 +13,7 @@ import java.util.List;
 */
 public interface OrderMapper extends BaseMapper<Order> {
 
-    List<Order> selectOrderList(IPage<Order> page, OrderListDto orderListDto);
+    IPage<Order> selectOrderList(IPage<Order> page, OrderListDto orderListDto);
 }
 
 

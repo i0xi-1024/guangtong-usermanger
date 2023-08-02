@@ -8,8 +8,6 @@ import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-
 @RestController
 @Slf4j
 @RequestMapping("/order")
@@ -19,10 +17,10 @@ public class OrderController {
     OrderService orderService;
 
     @GetMapping("/list")
-    public Result<?> getOrderList(OrderListDto orderListDto){
-        try{
+    public Result<?> getOrderList(OrderListDto orderListDto) {
+        try {
             return Result.success(orderService.getOrderList(orderListDto));
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             log.error(e.toString());
             return Result.error(e);
@@ -30,37 +28,49 @@ public class OrderController {
     }
 
     @GetMapping("/order")
-    public Result<?> getOrder(@RequestParam int id){
-        try{
+    public Result<?> getOrder(@RequestParam int id) {
+        try {
             return Result.success(orderService.getById(id));
-        }catch (Exception e){
+        } catch (Exception e) {
             return Result.error(e);
         }
     }
 
     @PutMapping("/order")
-    public Result<?> addOrder(Order order){
-        try{
-            return Result.success(orderService.save(order));
-        }catch (Exception e){
+    public Result<?> addOrder(Order order) {
+        try {
+            if (orderService.save(order)) {
+                return Result.success();
+            } else {
+                return Result.error("保存失败！");
+            }
+        } catch (Exception e) {
             return Result.error(e);
         }
     }
 
     @PostMapping("/order")
-    public Result<?> editOrder(Order order){
-        try{
-            return Result.success(orderService.updateById(order));
-        }catch (Exception e){
+    public Result<?> editOrder(Order order) {
+        try {
+            if (orderService.updateById(order)) {
+                return Result.success();
+            } else {
+                return Result.error("修改失败！");
+            }
+        } catch (Exception e) {
             return Result.error(e);
         }
     }
 
-    @DeleteMapping("/order")
-    public Result<?> delOrder(List<Integer> id){
-        try{
-            return Result.success(orderService.removeByIds(id));
-        }catch (Exception e){
+    @DeleteMapping("/order/{id}")
+    public Result<?> delOrder(@PathVariable int id) {
+        try {
+            if (orderService.removeById(id)) {
+                return Result.success();
+            } else {
+                return Result.error("删除失败！");
+            }
+        } catch (Exception e) {
             return Result.error(e);
         }
     }
